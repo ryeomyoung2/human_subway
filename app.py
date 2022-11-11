@@ -33,6 +33,26 @@ def sayHello():
     }
 
     return responseBody
+@app.route('/api/sayHello2', methods=['POST'])
+def sayHello():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": "ㄲㅈ"
+                    }
+                }
+            ]
+        }
+    }
+
+    return responseBody
 
 ## 카카오톡 이미지형 응답
 @app.route('/api/showHello', methods=['POST'])
