@@ -25,7 +25,7 @@ def sayHello():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": "안녕 hello I'm Ryan"
+                        "text": "안녕하세요"
                     }
                 }
             ]
