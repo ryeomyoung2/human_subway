@@ -86,7 +86,7 @@ def showHello():
             "outputs": [
                 {
                     "simpleImage": {
-                        "imageUrl": "https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/399/2c767a9a51bdbb3b7e22acab847ef3cd_res.jpeg",
+                        "imageUrl": "https://t1.daumcdn.net/friends/prod/category/M001_friends_ryan2.jpg",
                         "altText": "hello I'm Ryan"
                     }
                 }
