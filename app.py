@@ -256,9 +256,9 @@ def saysubway2():
 
     print(content, type(content))
     query_str = f'''
-        SELECT * FROM subdata2 
+        SELECT * FROM subdata2 WHERE acctime = '2022-11-15 06:01' 
     '''
-
+  
     engine = create_engine("postgresql://arbmerojlhxbrf:6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8@ec2-18-207-37-30.compute-1.amazonaws.com:5432/da3iiu1dg1eubl", echo = False)
 
     with engine.connect() as conn:
