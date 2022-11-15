@@ -228,40 +228,40 @@ def saysubway():
 
 
 ## DB 출력
-# @app.route('/api/saysubway2', methods=['POST'])
-# def saysubway2():
+@app.route('/api/saysubway2', methods=['POST'])
+def saysubway2():
     
-#     body = request.get_json()
-#     params_df = body['action']['params']
-#     content = str(json.loads(params_df['content'])['amount'])
+    body = request.get_json()
+    params_df = body['action']['params']
+    content = str(json.loads(params_df['content']))
 
-#     print(content, type(content))
-#     query_str = f'''
-#         SELECT content FROM subdata2 where content >= {content}
-#     '''
+    print(content, type(content))
+    query_str = f'''
+        SELECT * FROM subdata2 
+    '''
 
-#     engine = create_engine("postgresql://arbmerojlhxbrf:6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8@ec2-18-207-37-30.compute-1.amazonaws.com:5432/da3iiu1dg1eubl", echo = False)
+    engine = create_engine("postgresql://arbmerojlhxbrf:6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8@ec2-18-207-37-30.compute-1.amazonaws.com:5432/da3iiu1dg1eubl", echo = False)
 
-#     with engine.connect() as conn:
-#         query = conn.execute(text(query_str))
+    with engine.connect() as conn:
+        query = conn.execute(text(query_str))
 
-#     df = pd.DataFrame(query.fetchall())
-#     nrow_num = str(len(df.index))
-#     answer_text = nrow_num
+    df = pd.DataFrame(query.fetchall())
+    nrow_num = str(len(df.index))
+    answer_text = nrow_num
 
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": answer_text + "개 입니다."
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
+    responseBody = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": answer_text
+                    }
+                }
+            ]
+        }
+    }
+    return responseBody
 
 
  
