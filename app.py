@@ -227,6 +227,25 @@ def saysubway():
     return responseBody
 
 
+## DB 연결 Local
+def db_create2():
+    # 로컬
+    # 	
+	# Heroku
+    engine = create_engine("postgresql://arbmerojlhxbrf:6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8@ec2-18-207-37-30.compute-1.amazonaws.com:5432/da3iiu1dg1eubl", echo = False)
+
+    engine.connect()
+    engine.execute("""
+        CREATE TABLE IF NOT EXISTS subdata2(
+            subacc VARCHAR(20) NOT NULL,
+            acctime VARCHAR(30) NOT NULL,
+            content VARCHAR(300) NOT NULL
+        );"""
+    )
+    data = pd.read_csv('data/subdata2.csv')
+    print(data)
+    data.to_sql(name='subdata2', con=engine, schema = 'public', if_exists='replace', index=False)
+
 ## DB 출력
 @app.route('/api/saysubway2', methods=['POST'])
 def saysubway2():
@@ -245,23 +264,23 @@ def saysubway2():
     with engine.connect() as conn:
         query = conn.execute(text(query_str))
 
-    df = pd.DataFrame(query.fetchall())
-    nrow_num = str(len(df.index))
-    answer_text = nrow_num
-
     responseBody = {
         "version": "2.0",
         "template": {
             "outputs": [
                 {
                     "simpleText": {
-                        "text": answer_text
+                        "text": query_str
                     }
                 }
             ]
         }
     }
     return responseBody
+
+if __name__ == "__main__":
+    db_create2()
+    app.run()
 
 
  
