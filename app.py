@@ -130,10 +130,10 @@ def simpleDelay2():
 
     today = date.today().isoformat()
 
-    hosun = '%' + hosun + '%'
-    direction = '%' + direction + '%'
-    delayTime = '%' + delayTime + '%'
-    trainTime = '%' + trainTime + '%'
+    # hosun = '%' + hosun + '%'
+    # direction = '%' + direction + '%'
+    # delayTime = '%' + delayTime + '%'
+    # trainTime = '%' + trainTime + '%'
 
     responseBody = {
         "version": "2.0",
