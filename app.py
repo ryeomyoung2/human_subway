@@ -62,7 +62,7 @@ def saysubway():
 def newslist1():
     body = request.get_json()
     print(body)
-    hosun = (body['actions']['params'])['sys_news']
+    hosun = (body['action']['params'])['sys_news']
 
     
     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
