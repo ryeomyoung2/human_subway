@@ -134,6 +134,8 @@ def simpleDelay2():
     trainTime = (body['action']['params'])['sys_trainTime']
     today = date.today().isoformat()
 
+    if direction == "소요산방면":
+        direction == "0"
 
     
     responseBody = {
