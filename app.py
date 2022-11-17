@@ -96,311 +96,6 @@ def newslist():
     }
     return responseBody
 
-##2호선뉴스
-# @app.route('/api/newslist2', methods=['POST'])
-# def newslist2():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%2호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-# ##3호선뉴스
-# @app.route('/api/newslist3', methods=['POST'])
-# def newslist3():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%3호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-#     ##4호선뉴스
-# @app.route('/api/newslist4', methods=['POST'])
-# def newslist4():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%4호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-# ##5호선뉴스
-# @app.route('/api/newslist5', methods=['POST'])
-# def newslist5():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%5호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-# ##6호선뉴스
-# @app.route('/api/newslist6', methods=['POST'])
-# def newslist6():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%6호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-# ##7호선뉴스
-# @app.route('/api/newslist7', methods=['POST'])
-# def newslist7():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%7호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-# ##8호선뉴스
-# @app.route('/api/newslist8', methods=['POST'])
-# def newslist8():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%8호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-# ##9호선뉴스
-# @app.route('/api/newslist9', methods=['POST'])
-# def newslist9():
-#     body = request.get_json()
-#     print(body)
-#     print(body['userRequest']['utterance'])
-
-    
-#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-#                             dbname="da3iiu1dg1eubl", 
-#                             user="arbmerojlhxbrf", 
-#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
-#                             port="5432")
- 
-#     cur = conn.cursor()
-
-#     cur.execute(f"SELECT * from newslist WHERE title LIKE '%9호선%' order by title asc limit 3")
-#     result_all = cur.fetchall()
-
-#     sbstr=""
-#     for i in result_all:
-#         for j in i:
-#             sbstr = sbstr + j + "\n"
-
-#     responseBody = {
-#         "version": "2.0",
-#         "template": {
-#             "outputs": [
-#                 {
-#                     "simpleText": {
-#                         "text": sbstr
-#                     }
-#                 }
-#             ]
-#         }
-#     }
-#     return responseBody
-
-
 @app.route('/api/simpleDelay', methods=['POST'])
 def simpleDelay():
 
@@ -423,7 +118,35 @@ def simpleDelay():
 
     return responseBody
 
- 
+@app.route('/api/simpleDelay2', methods=['POST'])
+def simpleDelay2():
+    body = request.get_json()
+    print(body)
+    hosun = (body['action']['params'])['sys_hosun']
+    direction = (body['action']['params'])['sys_direction']
+    delayTime = (body['action']['params'])['sys_delayTime']
+    trainTime = (body['action']['params'])['sys_trainTime']
+
+    today = date.today().isoformat()
+
+    hosun = '%' + hosun + '%'
+    direction = '%' + direction + '%'
+    delayTime = '%' + delayTime + '%'
+    trainTime = '%' + trainTime + '%'
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun + "&inoutTag="+ direction +"&time="+ delayTime +"&indate="+ today +"&order="+ trainTime
+                    }
+                }
+            ]
+        }
+    }
+    return responseBody
 
 
 
