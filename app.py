@@ -73,7 +73,7 @@ def newslist1():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%1호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%1호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -111,7 +111,7 @@ def newslist2():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%2호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%2호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -149,7 +149,7 @@ def newslist3():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%3호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%3호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -187,7 +187,7 @@ def newslist4():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%4호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%4호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -225,7 +225,7 @@ def newslist5():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%5호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%5호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -263,7 +263,7 @@ def newslist6():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%6호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%6호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -301,7 +301,7 @@ def newslist7():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%7호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%7호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -339,7 +339,7 @@ def newslist8():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%8호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%8호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -377,7 +377,7 @@ def newslist9():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%9호선%'")
+    cur.execute(f"SELECT * from newslist WHERE title LIKE '%9호선%' order by title asc limit 3")
     result_all = cur.fetchall()
 
     sbstr=""
