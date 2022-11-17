@@ -57,10 +57,47 @@ def saysubway():
     }
     return responseBody
 
+##1호선뉴스
+@app.route('/api/newslist1', methods=['POST'])
+def newslist1():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
 
-    ##호선별 뉴스
-@app.route('/api/newslist', methods=['POST'])
-def newslist():
+    
+    conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
+                            dbname="da3iiu1dg1eubl", 
+                            user="arbmerojlhxbrf", 
+                            password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
+                            port="5432")
+ 
+    cur = conn.cursor()
+
+    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%1호선%'")
+    result_all = cur.fetchall()
+
+    sbstr=""
+    for i in result_all:
+        for j in i:
+            sbstr = sbstr + j + "\n"
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": sbstr
+                    }
+                }
+            ]
+        }
+    }
+    return responseBody
+
+    ##4호선뉴스
+@app.route('/api/newslist4', methods=['POST'])
+def newslist4():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
@@ -95,6 +132,7 @@ def newslist():
         }
     }
     return responseBody
+
 
 
 # 1단계 : 코드 수정
