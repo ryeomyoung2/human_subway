@@ -30,6 +30,7 @@ def saysubway():
 
     # 오늘 날짜 (YYYY-MM-DD 구하기)
     today = date.today().isoformat() + '%'
+    print(today)
 
     # DB SELECT
     cur.execute(f"SELECT * FROM subdata2 WHERE acctime LIKE '{today}' ")
