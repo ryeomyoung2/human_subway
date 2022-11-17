@@ -4,6 +4,7 @@ from flask import Flask, request
 from datetime import date
 import psycopg2
 import json
+import re
 
 app = Flask(__name__)
 
@@ -124,24 +125,22 @@ def simpleDelay2():
     body = request.get_json()
     print(body)
     hosun = (body['action']['params'])['sys_hosun']
+    hosun2 = hosun
+    hosun3 = re.sub(r'[^0-9]', '', hosun2)
     direction = (body['action']['params'])['sys_direction']
     delayTime = (body['action']['params'])['sys_delayTime']
     trainTime = (body['action']['params'])['sys_trainTime']
-
     today = date.today().isoformat()
 
-    # hosun = '%' + hosun + '%'
-    # direction = '%' + direction + '%'
-    # delayTime = '%' + delayTime + '%'
-    # trainTime = '%' + trainTime + '%'
 
+    
     responseBody = {
         "version": "2.0",
         "template": {
             "outputs": [
                 {
                     "simpleText": {
-                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun + "&inoutTag="+ direction +"&time="+ delayTime +"&indate="+ today +"&order="+ trainTime
+                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction +"&time="+ delayTime +"&indate="+ today +"&order="+ trainTime
                     }
                 }
             ]
