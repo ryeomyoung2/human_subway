@@ -129,6 +129,8 @@ def simpleDelay2():
     hosun3 = re.sub(r'[^0-9]', '', hosun2)
     direction = (body['action']['params'])['sys_direction']
     delayTime = (body['action']['params'])['sys_delayTime']
+    delayTime2 = delayTime
+    delayTime3 = re.sub(r'[^0-9]', '', delayTime2)
     trainTime = (body['action']['params'])['sys_trainTime']
     today = date.today().isoformat()
 
@@ -140,7 +142,7 @@ def simpleDelay2():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction +"&time="+ delayTime +"&indate="+ today +"&order="+ trainTime
+                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime
                     }
                 }
             ]
