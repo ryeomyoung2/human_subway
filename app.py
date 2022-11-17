@@ -138,19 +138,19 @@ def simpleDelay2():
         direction == "0"
 
     
-    responseBody = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText": {
-                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime
+        responseBody = {
+            "version": "2.0",
+            "template": {
+                "outputs": [
+                    {
+                        "simpleText": {
+                            "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
-    }
-    return responseBody
+        return responseBody
 
 
 
