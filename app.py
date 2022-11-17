@@ -138,6 +138,10 @@ def simpleDelay2():
         A = direction
         A = "0"
         direction2=A 
+    if direction == "신창방면":
+        A = direction
+        A = "1"
+        direction2=A 
 
     
         responseBody = {
