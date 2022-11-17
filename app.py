@@ -58,11 +58,11 @@ def saysubway():
     return responseBody
 
 ##1호선뉴스
-@app.route('/api/newslist1', methods=['POST'])
+@app.route('/api/newslist', methods=['POST'])
 def newslist1():
     body = request.get_json()
     print(body)
-    print(body['userRequest']['utterance'])
+    hosun = (body['actions']['params'])['sys_news']
 
     
     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
@@ -73,13 +73,14 @@ def newslist1():
  
     cur = conn.cursor()
 
-    cur.execute(f"SELECT * from newslist WHERE title LIKE '%1호선%' order by title asc limit 3")
+    newhosun = '%' + hosun + '%'
+    cur.execute(f"SELECT * from newslist WHERE title LIKE {newhosun} order by title asc limit 3")
     result_all = cur.fetchall()
 
-    sbstr=""
+    newsstr=""
     for i in result_all:
         for j in i:
-            sbstr = sbstr + j + "\n"
+            newsstr = newsstr + j + "\n"
 
     responseBody = {
         "version": "2.0",
@@ -87,7 +88,7 @@ def newslist1():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": sbstr
+                        "text": newsstr
                     }
                 }
             ]
