@@ -58,7 +58,7 @@ def saysubway():
     return responseBody
 
 
-    ## 오늘 호선 뉴스
+    ##호선별 뉴스
 @app.route('/api/newslist', methods=['POST'])
 def newslist():
     body = request.get_json()
@@ -71,15 +71,10 @@ def newslist():
                             user="arbmerojlhxbrf", 
                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
                             port="5432")
-
-    
+ 
     cur = conn.cursor()
 
-    
-
-
-    # DB SELECT
-    cur.execute(f"SELECT * FROM subdata WHERE acctime LI ")
+    cur.execute(f"SELECT writingtime,title,link FROM newslist WHERE title LIKE '%4호선%'")
     result_all = cur.fetchall()
 
     sbstr=""
@@ -200,5 +195,3 @@ def calCulator():
 #     app.run()
 
 
-
- 
