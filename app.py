@@ -135,7 +135,9 @@ def simpleDelay2():
     today = date.today().isoformat()
 
     if direction == "소요산방면":
-        direction == "0"
+        A = direction
+        A = "0"
+        direction2=A 
 
     
         responseBody = {
@@ -144,7 +146,7 @@ def simpleDelay2():
                 "outputs": [
                     {
                         "simpleText": {
-                            "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime
+                            "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction2 +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime
                         }
                     }
                 ]
