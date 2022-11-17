@@ -55,6 +55,50 @@ def saysubway():
     return responseBody
 
 
+#     ## 오늘 호선 뉴스
+# @app.route('/api/newslist', methods=['POST'])
+# def newslist():
+#     body = request.get_json()
+#     print(body)
+#     print(body['userRequest']['utterance'])
+
+    
+#     conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
+#                             dbname="da3iiu1dg1eubl", 
+#                             user="arbmerojlhxbrf", 
+#                             password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
+#                             port="5432")
+
+    
+#     cur = conn.cursor()
+
+#     # 오늘 날짜 (YYYY-MM-DD 구하기)
+#     todaynews = date.todaynews().isoformat() + '%'
+
+#     # DB SELECT
+#     cur.execute(f"SELECT * FROM subdata WHERE acctime LIKE '{todaynews}' ")
+#     result_all = cur.fetchall()
+
+#     sbstr=""
+#     for i in result_all:
+#         for j in i:
+#             sbstr = sbstr + j + "\n"
+
+#     responseBody = {
+#         "version": "2.0",
+#         "template": {
+#             "outputs": [
+#                 {
+#                     "simpleText": {
+#                         "text": sbstr
+#                     }
+#                 }
+#             ]
+#         }
+#     }
+#     return responseBody
+
+
 # 1단계 : 코드 수정
 # 2단계 : 스킬 등록 (URL)
 # 3단계 : 시나리오에서 등록한 스킬 호출
