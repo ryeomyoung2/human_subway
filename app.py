@@ -111,7 +111,7 @@ def simpleDelay():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylist.jsp"
+                        "text": "http://www.seoulmetro.co.kr/kr/delayProofList.do?menuIdx=543"
                     }
                 }
             ]
@@ -206,7 +206,7 @@ def simpleDelay2():
         A = direction
         A = "17"
         direction2=A   
-              
+
     responseBody = {
         "version": "2.0",
         "template": {
