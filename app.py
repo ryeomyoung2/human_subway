@@ -141,9 +141,72 @@ def simpleDelay2():
     elif direction == "신창방면":
         A = direction
         A = "1"
+        direction2=A
+    elif direction == "인천방면":
+        A = direction
+        A = "2"
+        direction2=A
+    elif direction == "대화방면":
+        A = direction
+        A = "3"
+        direction2=A
+    elif direction == "오금방면":
+        A = direction
+        A = "4"
         direction2=A 
-
-    
+    elif direction == "당고개방면":
+        A = direction
+        A = "5"
+        direction2=A
+    elif direction == "오이도방면":
+        A = direction
+        A = "6"
+        direction2=A
+    elif direction == "문산방면":
+        A = direction
+        A = "7"
+        direction2=A
+    elif direction == "용문방면":
+        A = direction
+        A = "8"
+        direction2=A
+    elif direction == "서울방면":
+        A = direction
+        A = "9"
+        direction2=A 
+    elif direction == "왕십리방면":
+        A = direction
+        A = "10"
+        direction2=A 
+    elif direction == "인천방면":
+        A = direction
+        A = "11"
+        direction2=A 
+    elif direction == "상봉/청량리 방면":
+        A = direction
+        A = "12"
+        direction2=A 
+    elif direction == "춘천방면":
+        A = direction
+        A = "13"
+        direction2=A 
+    elif direction == "판교방면":
+        A = direction
+        A = "14"
+        direction2=A 
+    elif direction == "여주방면":
+        A = direction
+        A = "15"
+        direction2=A 
+    elif direction == "부천방면":
+        A = direction
+        A = "16"
+        direction2=A 
+    elif direction == "일광방면":
+        A = direction
+        A = "17"
+        direction2=A   
+              
     responseBody = {
         "version": "2.0",
         "template": {
