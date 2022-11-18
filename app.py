@@ -205,15 +205,32 @@ def simpleDelay2():
     elif direction == "일광방면":
         A = direction
         A = "17"
-        direction2=A   
+        direction2=A 
 
+    if trainTime == "2":
+        A = trainTime
+        A = "1_2"
+        trainTime2=A
+    elif trainTime == "3":
+        A = trainTime
+        A = "2"
+        trainTime2=A
+    elif trainTime == "4":
+        A = trainTime
+        A = "2_3"
+        trainTime2=A
+    elif trainTime == "5":
+        A = trainTime
+        A = "3"
+        trainTime2=A
+   
     responseBody = {
         "version": "2.0",
         "template": {
             "outputs": [
                 {
                     "simpleText": {
-                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction2 +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime
+                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction2 +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime2
                     }
                 }
             ]
