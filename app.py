@@ -76,7 +76,7 @@ def newslist():
     cur = conn.cursor()
 
     newhosun = '%' + hosun + '%'
-    cur.execute(f"SELECT title, link from news2 WHERE title LIKE '{newhosun}' order by title desc limit 3")
+    cur.execute(f"SELECT title, link from news2 WHERE title LIKE '{newhosun}' order by id desc limit 3")
     result_all = cur.fetchall()
 
     newsstr=""
