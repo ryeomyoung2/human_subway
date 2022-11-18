@@ -77,7 +77,7 @@ def newslist():
 
     newhosun = '%' + hosun + '%'
     # cur.execute(f"SELECT title, link from news2 WHERE title LIKE '{newhosun}' order by id desc limit 3")
-    cur.execute("SELECT (row_number() over()) AS rownum, writingtime, title FROM news5 WHERE title LIKE '{newhosun}' order by rownum desc limit 3")
+    cur.execute(f"SELECT (row_number() over()) AS rownum, writingtime, title FROM news5 WHERE title LIKE '{newhosun}' order by rownum desc limit 3")
     result_all = cur.fetchall()
 
     newsstr=""
