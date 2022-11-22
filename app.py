@@ -1,6 +1,7 @@
 from flask import Flask, request
 from datetime import date
 import psycopg2
+import requests
 import json
 import re
 
@@ -74,14 +75,16 @@ def newslist():
     cur = conn.cursor()
 
     newhosun = '%' + hosun + '%'
-    cur.execute(f"SELECT title, link from news2 WHERE title LIKE '{newhosun}' order by id desc limit 3")
-    # cur.execute(f"SELECT (row_number() over()) AS rownum, writingtime, title FROM news5 WHERE title LIKE '{newhosun}' order by rownum desc limit 3")
+    # cur.execute(f"SELECT title, link from news2 WHERE title LIKE '{newhosun}' order by id desc limit 3")
+    cur.execute(f"SELECT * from newsdata WHERE newsname LIKE '{newhosun}' order by newsdate desc limit 5")
     result_all = cur.fetchall()
+    newsstr = ""
 
-    newsstr=""
     for i in result_all:
         for j in i:
-            newsstr = newsstr + j + "\n"
+            newsstr = newsstr + j + '\n'
+        newsstr = newsstr + '\n'
+    newsstr = newsstr[:-2]
 
     responseBody = {
         "version": "2.0",
