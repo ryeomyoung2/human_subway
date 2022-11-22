@@ -3,6 +3,7 @@
 from flask import Flask, request
 from datetime import date
 import psycopg2
+import requests
 import json
 import re
 
@@ -29,18 +30,22 @@ def saysubway():
     # 데이터 조작 인스턴스 생성
     cur = conn.cursor()
 
+   # 데이터 조작 인스턴스 생성
+    cur = conn.cursor()
+
     # 오늘 날짜 (YYYY-MM-DD 구하기)
     today = date.today().isoformat() + '%'
-    print(today)
 
     # DB SELECT
-    cur.execute(f"SELECT * FROM subdata2 WHERE acctime LIKE '{today}' ")
+    cur.execute(f"SELECT * FROM subaccdata WHERE acctime LIKE '{today}' order by acctime ASC")
     result_all = cur.fetchall()
 
     sbstr=""
     for i in result_all:
         for j in i:
             sbstr = sbstr + j + "\n"
+        sbstr = sbstr + "\n"
+    sbstr = sbstr[:-2]
 
     if(sbstr==""):
         sbstr = "오늘은 지하철 속보가 없습니다"
@@ -59,31 +64,68 @@ def saysubway():
     }
     return responseBody
 
-##호선뉴스
+
+# 경로 url 변환 함수
+def location(searching):
+    url = 'https://dapi.kakao.com/v2/local/search/keyword.json?query={}'.format(searching)
+    headers = {
+        "Authorization": "KakaoAK bbc0593ca1fbd88db71ccfdd5421ef1e"
+    }
+    destination = 'https://map.kakao.com/link/to/' + (requests.get(url, headers = headers).json()['documents'])[0].get('id')
+    
+    return destination
+
+# 목적지 검색
+@app.route('/api/goto', methods=['POST'])
+def goto():
+    body = request.get_json()
+    print(body)
+    params_df = (body['action']['params'])['sys_location']
+    print(type(params_df))
+
+    answer_text = str(location(params_df))
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": answer_text
+                    }
+                }
+            ]
+        }
+    }
+
+    return responseBody
+
+# 뉴스 검색
 @app.route('/api/newslist', methods=['POST'])
 def newslist():
     body = request.get_json()
     print(body)
     hosun = (body['action']['params'])['sys_news']
 
-    
-    conn = psycopg2.connect(host="ec2-18-207-37-30.compute-1.amazonaws.com", 
-                            dbname="da3iiu1dg1eubl", 
-                            user="arbmerojlhxbrf", 
-                            password="6944d2306202fed548eb3547ca2aaf2cfc420aa21880236efff1ba4f395f35f8", 
+    conn = psycopg2.connect(host="ec2-23-21-207-93.compute-1.amazonaws.com", 
+                            dbname="d3oubpekvnbupv", 
+                            user="grxhirqndvyqvv", 
+                            password="6f1afaafe16d245c70666bdb8c831aa876e62b380a1544f5dc832c51f27cece6", 
                             port="5432")
- 
+
     cur = conn.cursor()
 
     newhosun = '%' + hosun + '%'
-    cur.execute(f"SELECT title, link from news2 WHERE title LIKE '{newhosun}' order by id desc limit 3")
-    # cur.execute(f"SELECT (row_number() over()) AS rownum, writingtime, title FROM news5 WHERE title LIKE '{newhosun}' order by rownum desc limit 3")
+    cur.execute(f"SELECT * from newsdata WHERE newsname LIKE '{newhosun}' order by newsdate desc limit 5")
     result_all = cur.fetchall()
 
-    newsstr=""
+    newsstr = ""
+
     for i in result_all:
         for j in i:
-            newsstr = newsstr + j + "\n"
+            newsstr = newsstr + j + '\n'
+        newsstr = newsstr + '\n'
+    newsstr = newsstr[:-2]
 
     responseBody = {
         "version": "2.0",
@@ -99,6 +141,7 @@ def newslist():
     }
     return responseBody
 
+# 간편 지연 증명서
 @app.route('/api/simpleDelay', methods=['POST'])
 def simpleDelay():
 
@@ -120,6 +163,7 @@ def simpleDelay():
     }
 
     return responseBody
+
 
 @app.route('/api/simpleDelay2', methods=['POST'])
 def simpleDelay2():
@@ -260,7 +304,7 @@ def sayHello():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": "안녕 hello I'm Ryan"
+                        "안녕하세요, 지하철 이슈 알림이입니다."
                     }
                 }
             ]
