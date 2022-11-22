@@ -165,123 +165,123 @@ def simpleDelay():
     return responseBody
 
 
-@app.route('/api/simpleDelay2', methods=['POST'])
-def simpleDelay2():
-    body = request.get_json()
-    print(body)
-    hosun = (body['action']['params'])['sys_hosun']
-    hosun2 = hosun
-    hosun3 = re.sub(r'[^0-9]', '', hosun2)
-    direction = (body['action']['params'])['sys_direction']
-    delayTime = (body['action']['params'])['sys_delayTime']
-    delayTime2 = delayTime
-    delayTime3 = re.sub(r'[^0-9]', '', delayTime2)
-    trainTime = (body['action']['params'])['sys_trainTime']
-    today = date.today().isoformat()
+# @app.route('/api/simpleDelay2', methods=['POST'])
+# def simpleDelay2():
+#     body = request.get_json()
+#     print(body)
+#     hosun = (body['action']['params'])['sys_hosun']
+#     hosun2 = hosun
+#     hosun3 = re.sub(r'[^0-9]', '', hosun2)
+#     direction = (body['action']['params'])['sys_direction']
+#     delayTime = (body['action']['params'])['sys_delayTime']
+#     delayTime2 = delayTime
+#     delayTime3 = re.sub(r'[^0-9]', '', delayTime2)
+#     trainTime = (body['action']['params'])['sys_trainTime']
+#     today = date.today().isoformat()
 
-    if direction == "소요산방면":
-        A = direction
-        A = "0"
-        direction2=A 
-    elif direction == "신창방면":
-        A = direction
-        A = "1"
-        direction2=A
-    elif direction == "인천방면":
-        A = direction
-        A = "2"
-        direction2=A
-    elif direction == "대화방면":
-        A = direction
-        A = "3"
-        direction2=A
-    elif direction == "오금방면":
-        A = direction
-        A = "4"
-        direction2=A 
-    elif direction == "당고개방면":
-        A = direction
-        A = "5"
-        direction2=A
-    elif direction == "오이도방면":
-        A = direction
-        A = "6"
-        direction2=A
-    elif direction == "문산방면":
-        A = direction
-        A = "7"
-        direction2=A
-    elif direction == "용문방면":
-        A = direction
-        A = "8"
-        direction2=A
-    elif direction == "서울방면":
-        A = direction
-        A = "9"
-        direction2=A 
-    elif direction == "왕십리방면":
-        A = direction
-        A = "10"
-        direction2=A 
-    elif direction == "인천방면":
-        A = direction
-        A = "11"
-        direction2=A 
-    elif direction == "상봉/청량리 방면":
-        A = direction
-        A = "12"
-        direction2=A 
-    elif direction == "춘천방면":
-        A = direction
-        A = "13"
-        direction2=A 
-    elif direction == "판교방면":
-        A = direction
-        A = "14"
-        direction2=A 
-    elif direction == "여주방면":
-        A = direction
-        A = "15"
-        direction2=A 
-    elif direction == "부천방면":
-        A = direction
-        A = "16"
-        direction2=A 
-    elif direction == "일광방면":
-        A = direction
-        A = "17"
-        direction2=A 
+#     if direction == "소요산방면":
+#         A = direction
+#         A = "0"
+#         direction2=A 
+#     elif direction == "신창방면":
+#         A = direction
+#         A = "1"
+#         direction2=A
+#     elif direction == "인천방면":
+#         A = direction
+#         A = "2"
+#         direction2=A
+#     elif direction == "대화방면":
+#         A = direction
+#         A = "3"
+#         direction2=A
+#     elif direction == "오금방면":
+#         A = direction
+#         A = "4"
+#         direction2=A 
+#     elif direction == "당고개방면":
+#         A = direction
+#         A = "5"
+#         direction2=A
+#     elif direction == "오이도방면":
+#         A = direction
+#         A = "6"
+#         direction2=A
+#     elif direction == "문산방면":
+#         A = direction
+#         A = "7"
+#         direction2=A
+#     elif direction == "용문방면":
+#         A = direction
+#         A = "8"
+#         direction2=A
+#     elif direction == "서울방면":
+#         A = direction
+#         A = "9"
+#         direction2=A 
+#     elif direction == "왕십리방면":
+#         A = direction
+#         A = "10"
+#         direction2=A 
+#     elif direction == "인천방면":
+#         A = direction
+#         A = "11"
+#         direction2=A 
+#     elif direction == "상봉/청량리 방면":
+#         A = direction
+#         A = "12"
+#         direction2=A 
+#     elif direction == "춘천방면":
+#         A = direction
+#         A = "13"
+#         direction2=A 
+#     elif direction == "판교방면":
+#         A = direction
+#         A = "14"
+#         direction2=A 
+#     elif direction == "여주방면":
+#         A = direction
+#         A = "15"
+#         direction2=A 
+#     elif direction == "부천방면":
+#         A = direction
+#         A = "16"
+#         direction2=A 
+#     elif direction == "일광방면":
+#         A = direction
+#         A = "17"
+#         direction2=A 
 
-    if trainTime == "2":
-        A = trainTime
-        A = "1_2"
-        trainTime2=A
-    elif trainTime == "3":
-        A = trainTime
-        A = "2"
-        trainTime2=A
-    elif trainTime == "4":
-        A = trainTime
-        A = "2_3"
-        trainTime2=A
-    elif trainTime == "5":
-        A = trainTime
-        A = "3"
-        trainTime2=A
+#     if trainTime == "2":
+#         A = trainTime
+#         A = "1_2"
+#         trainTime2=A
+#     elif trainTime == "3":
+#         A = trainTime
+#         A = "2"
+#         trainTime2=A
+#     elif trainTime == "4":
+#         A = trainTime
+#         A = "2_3"
+#         trainTime2=A
+#     elif trainTime == "5":
+#         A = trainTime
+#         A = "3"
+#         trainTime2=A
    
-    responseBody = {
-        "version": "2.0",
-        "template": {
-            "outputs": [
-                {
-                    "simpleText": {
-                        "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction2 +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime2
-                    }
-                }
-            ]
-        }
-    }
-    return responseBody
+#     responseBody = {
+#         "version": "2.0",
+#         "template": {
+#             "outputs": [
+#                 {
+#                     "simpleText": {
+#                         "text": "https://info.korail.com/mbs/www/neo/delay/delaylistDetail.jsp?line=" + hosun3 + "&inoutTag="+ direction2 +"&time="+ delayTime3 +"&indate="+ today +"&order="+ trainTime2
+#                     }
+#                 }
+#             ]
+#         }
+#     }
+#     return responseBody
 
 
 
