@@ -78,13 +78,17 @@ def newslist():
     # cur.execute(f"SELECT title, link from news2 WHERE title LIKE '{newhosun}' order by id desc limit 3")
     cur.execute(f"SELECT * from newsdata WHERE newsname LIKE '{newhosun}' order by newsdate desc limit 5")
     result_all = cur.fetchall()
-    newsstr = ""
+    newsstr=""
+
+    # for i in result_all:
+    #     for j in i:
+    #         newsstr = newsstr + j + '\n'
+    #     newsstr = newsstr + '\n'
+    # newsstr = newsstr[:-2]
 
     for i in result_all:
         for j in i:
-            newsstr = newsstr + j + '\n'
-        newsstr = newsstr + '\n'
-    newsstr = newsstr[:-2]
+            newsstr = newsstr + j + "\n"
 
     responseBody = {
         "version": "2.0",
