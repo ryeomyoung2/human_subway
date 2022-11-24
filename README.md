@@ -1,7 +1,8 @@
 ## Project
 
  **지하철 교통 도우미 챗봇 프로젝트**  
-- **작업툴**: jupyter notebook, cs code, 카카오 i 오픈빌더, postgreSQL
+- **작업툴**: Jupyter notebook, cs code, 카카오 i 오픈빌더
+- **데이터베이스**: PostgreSQL
 - **서버 배포**: Heroku
 - **사용 언어**: python
 - **사용 라이브러리**: Flask-2.2.2, Psycopg2-2.9.5, Selenium-4.6.0, Schedule-1.1.0
