@@ -1,6 +1,6 @@
 ## Project
 
- **지하철 교통 도우미 챗봇 프로젝트**  
+ **지하철 교통 도우미 카카오톡 챗봇 프로젝트**  
 - **작업툴**: Jupyter notebook, cs code, 카카오 i 오픈빌더
 - **데이터베이스**: PostgreSQL
 - **서버 배포**: Heroku
